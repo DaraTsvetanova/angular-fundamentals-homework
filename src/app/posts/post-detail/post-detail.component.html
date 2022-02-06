@@ -1,0 +1,12 @@
+<div *ngIf="post">
+
+    <h2>{{post.title | uppercase}} Details</h2>
+    <div><span>title: </span>{{post.title}}</div>
+    <div><span>id: </span>{{post.id}}</div>
+    <div><span>body: </span>{{post.body}}</div>
+    <div><span>userId: </span>{{post.userId}}</div>
+</div>
+
+
+<!-- <button type="button" (click)="save()">save</button> -->
+<button type="button" (click)="goBack()">go back</button>

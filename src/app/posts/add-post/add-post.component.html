@@ -1,0 +1,16 @@
+<h2>Add post</h2>
+<div>
+    <label for="post-title">Post title: </label>
+    <input id="post-title" #postTitle />
+    <label for="post-id">Post id: </label>
+    <input id="post-id" #postId />
+    <label for="post-body">Post body: </label>
+    <input id="post-body" #postBody />
+    <label for="post-userid">PostUserId: </label>
+    <input id="post-userid" #postUserId />
+
+    <button type="button" class="add-button"
+        (click)="add(postTitle.value, postId.value, postBody.value, postUserId.value); postTitle.value=''; postBody.value=''; postId.value=''; postUserId.value='';">
+        Add post
+    </button>
+</div>
