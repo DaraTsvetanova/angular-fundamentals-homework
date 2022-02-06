@@ -9,7 +9,7 @@
     <label for="post-userid">PostUserId: </label>
     <input id="post-userid" #postUserId />
 
-    <button type="button" class="add-button"
+    <button mat-raised-button type="button" class="add-button"
         (click)="add(postTitle.value, postId.value, postBody.value, postUserId.value); postTitle.value=''; postBody.value=''; postId.value=''; postUserId.value='';">
         Add post
     </button>

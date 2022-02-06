@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostsModule } from './posts/posts.module';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent],
@@ -21,6 +22,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     PostsModule,
     RouterModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

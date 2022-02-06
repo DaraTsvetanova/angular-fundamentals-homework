@@ -1,15 +1,16 @@
 <h2>Posts</h2>
 
-<a routerLink="/add"><button type="button" class="add" title="add posts">Add new post</button></a>
+<a mat-raised-button routerLink="/add">Add new post</a>
 
 <ul class="posts">
     <li *ngFor="let post of posts">
         <a routerLink="/detail/{{post.id}}">
             <span class="badge">{{post.id}}</span> {{post.title}}
         </a>
-        <a routerLink="/detail/{{post.id}}"><button type="button" class="details"
-                title="details post">Details</button></a>
-        <a routerLink="/posts/{{post.id}}"><button type="button" class="update" title="update post">Update</button></a>
-        <button type="button" class="delete" title="delete post" (click)="delete(post)">Delete</button>
+        <a mat-raised-button routerLink="/detail/{{post.id}}">Details</a>
+        <a mat-raised-button routerLink="/posts/{{post.id}}">Update</a>
+        <button mat-raised-button type="button" class="delete" title="delete post" (click)="delete(post)">
+            <mat-icon>delete</mat-icon>
+        </button>
     </li>
 </ul>

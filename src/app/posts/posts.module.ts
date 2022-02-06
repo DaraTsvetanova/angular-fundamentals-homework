@@ -6,7 +6,8 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
 import { PostService } from '../post.service';
 import { RouterModule } from '@angular/router';
-import { FormsModule, ɵangular_packages_forms_forms_m } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { FormsModule, ɵangular_packages_forms_forms_m } from '@angular/forms';
     AddPostComponent,
     PostUpdateComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, MaterialModule],
   providers: [PostService],
 })
 export class PostsModule {}
