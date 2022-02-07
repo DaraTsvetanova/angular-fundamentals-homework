@@ -1,12 +1,14 @@
-<h2>Posts</h2>
-
-<a mat-raised-button routerLink="/add">Add new post</a>
+<h2 class="title">Posts</h2>
+<div>
+    <a mat-raised-button class="add-btn" color="primary" routerLink="/add">Add new post</a>
+</div>
 
 <div class="mat-elevation-z8 posts">
     <mat-table [dataSource]="this.postService.posts">
         <ng-container matColumnDef="id">
             <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-            <mat-cell class="box" *matCellDef="let post"> <a routerLink="/detail/{{post.id}}">{{post.id}} </a>
+            <mat-cell class="box" *matCellDef="let post"> <a mat-button routerLink="/detail/{{post.id}}">{{post.id}}
+                </a>
             </mat-cell>
         </ng-container>
 
@@ -29,9 +31,10 @@
             <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
             <mat-cell *matCellDef="let element">
 
-                <a mat-raised-button class="detail" routerLink="/detail/{{element.id}}">Details</a>
-                <a mat-raised-button class="update" routerLink="/posts/{{element.id}}">Update</a>
-                <button mat-raised-button type="button" class="delete" title="delete post" (click)="delete(element)">
+                <a mat-raised-button color="primary" class="detail" routerLink="/detail/{{element.id}}">Details</a>
+                <a mat-raised-button color="primary" class="update" routerLink="/posts/{{element.id}}">Update</a>
+                <button mat-raised-button color="primary" type="button" class="delete" title="delete post"
+                    (click)="delete(element)">
                     <mat-icon>delete</mat-icon>
                 </button>
             </mat-cell>
@@ -40,6 +43,4 @@
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
-    </mat-paginator>
 </div>

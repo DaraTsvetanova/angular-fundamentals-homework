@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../../post';
 import { PostService } from '../../post.service';
-import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -16,23 +15,22 @@ export class AddPostComponent implements OnInit {
     this.postService.loadPosts();
   }
 
-  add(title: string): void {
+  add(title: string, body: string, userId: number): void {
     title = title.trim();
-    if (!title) {
+    body = body.trim();
+    if (!title && !body && !userId) {
       return;
     }
-    this.postService.addPost({ title } as Post).subscribe((post) => {
-      this.postService.posts.push(post) && this.goBack();
-    });
+    this.postService
+      .addPost({ title, body, userId } as Post)
+      .subscribe((post) => {
+        this.postService.posts.push(post) && this.goBack();
+      });
   }
 
   goBack(): void {
     this.location.back();
   }
-
-  // showPostDetails = () => {
-  //   this.router.navigateByUrl('./details/:id');
-  // };
 
   delete(post: Post): void {
     this.postService.posts = this.postService.posts.filter((p) => p !== post);

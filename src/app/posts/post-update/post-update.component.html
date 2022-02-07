@@ -1,6 +1,6 @@
-<div *ngIf="post">
+<div class="form" *ngIf="post">
 
-    <h2>{{post.title | uppercase}} Details</h2>
+    <h2>Update - {{post.title}}</h2>
 
     <mat-form-field appearance="outline" color="accent">
         <mat-label>ID:</mat-label>
@@ -22,8 +22,8 @@
         <input matInput id="post-userId" [(ngModel)]="post.userId" placeholder="userId" required>
     </mat-form-field>
 
-    <div>
-        <button mat-raised-button type="button" (click)="save()">save</button>
-        <button mat-raised-button type="button" (click)="goBack()">go back</button>
+    <div class="actions">
+        <button mat-raised-button class="save-btn" color="primary" type="button" (click)="save()">save</button>
+        <button mat-raised-button class="cancel-btn" color="primary" type="button" (click)="goBack()">go back</button>
     </div>
 </div>

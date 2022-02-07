@@ -1,14 +1,19 @@
 <div *ngIf="post">
+    <mat-card>
+        <h2>Details for: {{post.title}} </h2>
+        <mat-card-subtitle>ID:</mat-card-subtitle>
+        <mat-card-content>{{post.id}}</mat-card-content>
 
-    <h2>{{post.title | uppercase}} Details</h2>
+        <mat-card-subtitle>Title:</mat-card-subtitle>
+        <mat-card-content>{{post.title}}</mat-card-content>
 
-    <mat-list role="list">
-        <mat-list-item role="listitem">{{post.id}}</mat-list-item>
-        <mat-list-item role="listitem">{{post.title}}</mat-list-item>
-        <mat-list-item role="listitem">{{post.body}}</mat-list-item>
-        <mat-list-item role="listitem">{{post.userId}}</mat-list-item>
-    </mat-list>
+        <mat-card-subtitle>Body:</mat-card-subtitle>
+        <mat-card-content>{{post.body}}</mat-card-content>
 
-    <button mat-raised-button type="button" (click)="goBack()">go back</button>
+        <mat-card-subtitle>UserID:</mat-card-subtitle>
+        <mat-card-content>{{post.userId}}</mat-card-content>
 
+        <mat-card-actions><button mat-raised-button color="primary" type="button" (click)="goBack()">go back</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

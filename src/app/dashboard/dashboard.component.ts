@@ -8,16 +8,7 @@ import { PostService } from '../post.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  posts: Post[] = [];
   constructor(private postService: PostService) {}
 
-  ngOnInit(): void {
-    this.postService.loadPosts();
-  }
-
-  // getPosts(): void {
-  //   this.postService.posts.slice(1, 5);
-  //   // .loadPosts()
-  //   // .subscribe((posts) => (this.posts = posts.slice(1, 5)));
-  // }
+  ngOnInit(): void {}
 }

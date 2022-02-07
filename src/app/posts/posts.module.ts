@@ -8,6 +8,7 @@ import { PostService } from '../post.service';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,13 @@ import { MaterialModule } from '../material/material.module';
     AddPostComponent,
     PostUpdateComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+  ],
   providers: [PostService],
 })
 export class PostsModule {}

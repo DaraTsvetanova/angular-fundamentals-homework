@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../post';
 import { PostService } from '../post.service';
-import { Router } from '@angular/router';
-import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-posts',
@@ -12,9 +10,7 @@ import { MatTable } from '@angular/material/table';
 export class PostsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'body', 'userId', 'actions'];
 
-  constructor(public postService: PostService, private router: Router) {}
-
-  @ViewChild(MatTable) table: MatTable<Post>;
+  constructor(public postService: PostService) {}
 
   ngOnInit(): void {
     this.postService.loadPosts();
@@ -34,7 +30,6 @@ export class PostsComponent implements OnInit {
     if (window.confirm('Are sure you want to delete this item ?')) {
       this.postService.posts = this.postService.posts.filter((p) => p !== post);
       this.postService.deletePost(post.id).subscribe();
-      this.table.renderRows();
     }
   }
 }

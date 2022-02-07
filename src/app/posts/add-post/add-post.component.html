@@ -1,5 +1,6 @@
 <h2>Add post</h2>
-<div>
+
+<div class="form">
     <mat-form-field appearance="outline" color="accent">
         <mat-label for="post-id">Post ID:</mat-label>
         <input matInput id="post-id" #postId placeholder="id">
@@ -19,8 +20,9 @@
         <mat-label for="post-userId">User ID:</mat-label>
         <input matInput id="post-userId" #postUserId placeholder="id">
     </mat-form-field>
-    <div>
-        <button mat-raised-button type="button" class="add-button" (click)="add(postTitle.value); postTitle.value='';">
+    <div class="actions">
+        <button mat-raised-button color="primary" type="button" class="add-button"
+            (click)="add(postTitle.value, postBody.value, postUserId.value); postTitle.value=''; postBody.value=''; postUserId.value='';">
             Add post
         </button>
     </div>

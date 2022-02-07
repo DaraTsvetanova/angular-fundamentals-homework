@@ -10,6 +10,7 @@ import { PostsModule } from './posts/posts.module';
 import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from './material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent],
@@ -23,6 +24,7 @@ import { MaterialModule } from './material/material.module';
     PostsModule,
     RouterModule,
     MaterialModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

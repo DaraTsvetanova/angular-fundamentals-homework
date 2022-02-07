@@ -54,9 +54,6 @@ export class PostService {
         }))
     );
     return observable;
-    // return this.http
-    //   .put(`${this.postsUrl}/${post.id}`, post, this.httpOptions)
-    //   .pipe(catchError(this.handleError<any>('updatePost')));
   }
 
   addPost(post: Post): Observable<Post> {
