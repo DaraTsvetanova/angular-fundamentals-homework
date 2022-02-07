@@ -32,12 +32,10 @@ export class PostsComponent implements OnInit {
     });
   }
 
-  // showPostDetails = () => {
-  //   this.router.navigateByUrl('./details/:id');
-  // };
-
   delete(post: Post): void {
-    this.posts = this.posts.filter((p) => p !== post);
-    this.postService.deletePost(post.id).subscribe();
+    if (window.confirm('Are sure you want to delete this item ?')) {
+      this.posts = this.posts.filter((p) => p !== post);
+      this.postService.deletePost(post.id).subscribe();
+    }
   }
 }
