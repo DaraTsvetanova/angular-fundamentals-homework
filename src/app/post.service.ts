@@ -8,6 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class PostService {
+  posts: Post[] = [];
   private postsUrl = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private http: HttpClient) {}
@@ -18,34 +19,44 @@ export class PostService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-
-      // Let the app keep running by returning an empty result.
+      console.error(error);
       return of(result as T);
     };
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.http
+  loadPosts(): void {
+    if (this.posts.length) return;
+    this.http
       .get<Post[]>(this.postsUrl)
-      .pipe(catchError(this.handleError<Post[]>('getPosts', [])));
+      .pipe(catchError(this.handleError<Post[]>('getPosts', [])))
+      .subscribe((posts: Post[]) => (this.posts = posts));
   }
 
   getPost(id: number): Observable<Post> {
     const url = `${this.postsUrl}/${id}`;
-    // For now, assume that a hero with the specified `id` always exists.
-    // Error handling will be added in the next step of the tutorial.
     return this.http
       .get<Post>(url)
-      .pipe(catchError(this.handleError<Post>(`getHero id=${id}`)));
+      .pipe(catchError(this.handleError<Post>(`getPost id=${id}`)));
   }
 
-  /** PUT: update the post on the server */
   updatePost(post: Post): Observable<any> {
-    return this.http
-      .put(this.postsUrl, post, this.httpOptions)
+    const observable = this.http
+      .put(`${this.postsUrl}/${post.id}`, post, this.httpOptions)
       .pipe(catchError(this.handleError<any>('updatePost')));
+
+    observable.subscribe(
+      (post: Post) =>
+        (this.posts = this.posts.map((p) => {
+          if (p.id === post.id) {
+            return post;
+          }
+          return p;
+        }))
+    );
+    return observable;
+    // return this.http
+    //   .put(`${this.postsUrl}/${post.id}`, post, this.httpOptions)
+    //   .pipe(catchError(this.handleError<any>('updatePost')));
   }
 
   addPost(post: Post): Observable<Post> {
@@ -54,7 +65,6 @@ export class PostService {
       .pipe(catchError(this.handleError<Post>('addPost')));
   }
 
-  /** DELETE: delete the post from the server */
   deletePost(id: number): Observable<Post> {
     const url = `${this.postsUrl}/${id}`;
 

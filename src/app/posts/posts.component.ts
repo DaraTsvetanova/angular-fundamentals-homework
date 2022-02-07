@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 import { Router } from '@angular/router';
-import { MatButton } from '@angular/material/button';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-posts',
@@ -10,16 +10,14 @@ import { MatButton } from '@angular/material/button';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  posts: Post[] = [];
+  displayedColumns: string[] = ['id', 'title', 'body', 'userId', 'actions'];
 
-  constructor(private postService: PostService, private router: Router) {}
+  constructor(public postService: PostService, private router: Router) {}
+
+  @ViewChild(MatTable) table: MatTable<Post>;
 
   ngOnInit(): void {
-    this.getPosts();
-  }
-
-  getPosts(): void {
-    this.postService.getPosts().subscribe((posts) => (this.posts = posts));
+    this.postService.loadPosts();
   }
 
   add(title: string): void {
@@ -28,14 +26,15 @@ export class PostsComponent implements OnInit {
       return;
     }
     this.postService.addPost({ title } as Post).subscribe((post) => {
-      this.posts.push(post);
+      this.postService.posts.push(post);
     });
   }
 
   delete(post: Post): void {
     if (window.confirm('Are sure you want to delete this item ?')) {
-      this.posts = this.posts.filter((p) => p !== post);
+      this.postService.posts = this.postService.posts.filter((p) => p !== post);
       this.postService.deletePost(post.id).subscribe();
+      this.table.renderRows();
     }
   }
 }

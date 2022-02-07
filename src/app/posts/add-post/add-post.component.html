@@ -2,26 +2,25 @@
 <div>
     <mat-form-field appearance="outline" color="accent">
         <mat-label for="post-id">Post ID:</mat-label>
-        <input matInput id="post-id" #postId placeholder="id" required>
+        <input matInput id="post-id" #postId placeholder="id">
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="accent">
         <mat-label for="post-title">Title:</mat-label>
-        <input matInput id="post-title" #postTitle placeholder="title" required>
+        <input matInput id="post-title" #postTitle placeholder="title">
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="accent">
         <mat-label for="post-body">Body:</mat-label>
-        <input matInput id="post-body" #postBody placeholder="title" required>
+        <input matInput id="post-body" #postBody placeholder="body">
     </mat-form-field>
 
     <mat-form-field appearance="outline" color="accent">
         <mat-label for="post-userId">User ID:</mat-label>
-        <input matInput id="post-userId" #postUserId placeholder="id" required>
+        <input matInput id="post-userId" #postUserId placeholder="id">
     </mat-form-field>
     <div>
-        <button mat-raised-button type="button" class="add-button"
-            (click)="add(postTitle.value, postId.value, postBody.value, postUserId.value); postTitle.value=''; postBody.value=''; postId.value=''; postUserId.value='';">
+        <button mat-raised-button type="button" class="add-button" (click)="add(postTitle.value); postTitle.value='';">
             Add post
         </button>
     </div>

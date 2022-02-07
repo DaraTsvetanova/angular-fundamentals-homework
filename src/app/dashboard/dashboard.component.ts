@@ -12,12 +12,12 @@ export class DashboardComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    this.getPosts();
+    this.postService.loadPosts();
   }
 
-  getPosts(): void {
-    this.postService
-      .getPosts()
-      .subscribe((posts) => (this.posts = posts.slice(1, 5)));
-  }
+  // getPosts(): void {
+  //   this.postService.posts.slice(1, 5);
+  //   // .loadPosts()
+  //   // .subscribe((posts) => (this.posts = posts.slice(1, 5)));
+  // }
 }
