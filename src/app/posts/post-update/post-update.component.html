@@ -2,24 +2,24 @@
 
     <h2>Update - {{post.title}}</h2>
 
-    <mat-form-field appearance="outline" color="accent">
+    <mat-form-field appearance="outline" color="primary">
         <mat-label>ID:</mat-label>
-        <input matInput id="post-id" [(ngModel)]="post.id" placeholder="id" required>
+        <input matInput id="post-id" [(ngModel)]="post.id" placeholder="id">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" color="accent">
+    <mat-form-field appearance="outline" color="primary">
         <mat-label>Title:</mat-label>
-        <input matInput #input id="post-title" [(ngModel)]="post.title" placeholder="title" required>
+        <input matInput #input id="post-title" [(ngModel)]="post.title" placeholder="title">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" color="accent">
+    <mat-form-field appearance="outline" color="primary">
         <mat-label>Body:</mat-label>
-        <input matInput id="post-body" [(ngModel)]="post.body" placeholder="body" required>
+        <input matInput id="post-body" [(ngModel)]="post.body" placeholder="body">
     </mat-form-field>
 
-    <mat-form-field appearance="outline" color="accent">
+    <mat-form-field appearance="outline" color="primary">
         <mat-label>UserID:</mat-label>
-        <input matInput id="post-userId" [(ngModel)]="post.userId" placeholder="userId" required>
+        <input matInput id="post-userId" [(ngModel)]="post.userId" placeholder="userId">
     </mat-form-field>
 
     <div class="actions">
