@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../post';
-import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +6,7 @@ import { PostService } from '../post.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private postService: PostService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

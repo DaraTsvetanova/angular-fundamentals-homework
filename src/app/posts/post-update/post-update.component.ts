@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../post';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
