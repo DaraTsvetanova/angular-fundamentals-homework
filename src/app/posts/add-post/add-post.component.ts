@@ -31,9 +31,4 @@ export class AddPostComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
-  delete(post: Post): void {
-    this.postService.posts = this.postService.posts.filter((p) => p !== post);
-    this.postService.deletePost(post.id).subscribe();
-  }
 }

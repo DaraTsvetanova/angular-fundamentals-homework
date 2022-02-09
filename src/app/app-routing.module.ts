@@ -7,7 +7,7 @@ import { PostUpdateComponent } from './posts/post-update/post-update.component';
 import { AddPostComponent } from './posts/add-post/add-post.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'detail/:id', component: PostDetailComponent },
   { path: 'posts', component: PostsComponent },
